@@ -7,7 +7,7 @@ class flash::params {
   case $::osfamily {
     'RedHat': {
       $manage_repo  = true
-      $package_name = 'bjnplugin'
+      $package_name = 'flash-plugin'
     }
     default: {
       fail("${::osfamily} is not supported")

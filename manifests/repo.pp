@@ -7,16 +7,24 @@ class flash::repo {
     fail("Use of private class ${name} by ${caller_module_name}")
   }
 
-  rpmkey { '5FF054BD':
-    ensure => present,
-    source => 'https://swdl.flash.com/repos/flash/bjn-key',
+  $package_name = 'adobe-release-x86_64-1.0-1.noarch'
+  $key = '/etc/pki/rpm-gpg/RPM-GPG-KEY-adobe-linux'
+
+  package { $package_name:
+    ensure   => present,
+    source   => "http://linuxdownload.adobe.com/adobe-release/${package_name}.rpm",
+    provider => rpm,
   } ->
-  yumrepo { 'flash':
+  rpmkey { 'F6777C67':
+    ensure => present,
+    source => $key,
+  } ->
+  yumrepo { 'adobe-linux-x86_64':
     ensure   => 'present',
-    baseurl  => 'https://swdl.flash.com/repos/flash/x86_64/release/rpm',
-    descr    => 'Blue Jeans Network, Inc. - x86_64 software and updates',
+    baseurl  => 'http://linuxdownload.adobe.com/linux/x86_64/',
+    descr    => 'Adobe Systems Incorporated',
     enabled  => '1',
     gpgcheck => '1',
-    gpgkey   => 'https://swdl.flash.com/repos/flash/bjn-key',
+    gpgkey   => "file://${key}",
   }
 }

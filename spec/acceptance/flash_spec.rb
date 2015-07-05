@@ -15,11 +15,11 @@ describe 'flash class' do
       apply_manifest(pp, :catch_changes => true)
     end
 
-    describe package('bjnplugin') do
+    describe package('flash-plugin') do
       it { should be_installed }
     end
 
-    describe yumrepo('flash') do
+    describe yumrepo('adobe-linux-x86_64') do
       it { should be_enabled }
     end
   end

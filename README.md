@@ -1,5 +1,5 @@
 Puppet flash Module
-=======================
+===================
 
 [![Build Status](https://travis-ci.org/jhoblitt/puppet-flash.png)](https://travis-ci.org/jhoblitt/puppet-flash)
 
@@ -19,7 +19,7 @@ Puppet flash Module
 Overview
 --------
 
-Manages the Blue Jeans Browser Plug-in
+Manages the Adobe flash plugin package
 
 Usage
 -----
