@@ -10,6 +10,10 @@ class flash::repo {
   $package_name = 'adobe-release-x86_64-1.0-1.noarch'
   $key = '/etc/pki/rpm-gpg/RPM-GPG-KEY-adobe-linux'
 
+  # Adobe only publishes their GPG key in their repo release RPM and only makes
+  # said RPM avaiable via HTTP.  We either have to bundle their GPG key into
+  # the puppet module or try to match the key fingerprint as we do below --
+  # both options are poor as the puppet module itself is unsigned.
   package { $package_name:
     ensure   => present,
     source   => "http://linuxdownload.adobe.com/adobe-release/${package_name}.rpm",

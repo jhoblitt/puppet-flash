@@ -83,4 +83,4 @@ Contributing
 See Also
 --------
 
-* [Blue Jeans Browser Plug-in](http://flash.com/downloads)
+* [flashplayer](https://get.adobe.com/flashplayer/)
